@@ -6,13 +6,13 @@ LOG_DIR=/var/log/rsync
 LOG_FILE=/var/log/rsync/$DATE.log
 
 # Variables source
-SYNC_SOURCE=10.0.0.192
-PATH_SOURCE=/root/scripts
+SYNC_SOURCE=<set_ip_source>
+PATH_SOURCE=<set_path_source>
 
 #Variables destination
-SYNC_DEST=10.0.1.235
-USER_DEST=accdayco2
-PATH_DEST=/tmp/rsync-dest
+SYNC_DEST=<set_ip_dest>
+PATH_DEST=<set_path_dest>
+USER_DEST=<set_user_dest>
 
 mkdir $LOG_DIR
 touch $LOG_FILE
@@ -29,4 +29,3 @@ then
 else
 	echo "Se sincronizaron los cambios"
 fi
-
