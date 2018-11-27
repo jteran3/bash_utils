@@ -13,7 +13,6 @@ echo "Contenedores disponibles para restaurar:"
 CONT_BK=`ls -1 "$BACKUP_PATH"`
 echo -e "$CONT_BK"
 
-#
 # Introducir nombre del contenedor a restaurar
 echo "Introduzca el nombre del contenedor a restaurar:"
 read CONT_RT
