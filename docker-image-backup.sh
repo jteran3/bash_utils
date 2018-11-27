@@ -57,13 +57,9 @@ else
 #Crear archivo .TAR con la imagen del Contenedor
 	SAVE_FILE=$BACKUP_PATH/$STACK_NAME/$IMAGE_NAME-IMAGE.tar
 	docker save -o $SAVE_FILE "$IMAGE_ID"
-
 fi
-
 echo "OK"
-
 done
-
 fi
 }
 
@@ -91,11 +87,8 @@ else
 #Crear archivo .TAR con la imagen del Contenedor
 	SAVE_FILE=$BACKUP_PATH/$IMAGE_NAME-IMAGE.tar
 	docker save -o $SAVE_FILE "$IMAGE_ID"
-
 fi
-
 echo "OK"
-
 done
 }
 
