@@ -21,7 +21,7 @@ then
 	IMAGE_ID=`docker images --format {{.ID}} $IMAGE_NAME`
 
 #Crear archivo .TAR con la imagen del Contenedor
-	SAVE_FILE=$BACKUP_PATH/$IMAGE_NAME2.tar
+	SAVE_FILE=$BACKUP_PATH/$IMAGE_NAME2-IMAGE.tar
 	docker save -o $SAVE_FILE "$IMAGE_ID"
 
 else
@@ -29,7 +29,7 @@ else
 	IMAGE_ID=`docker images --format {{.ID}} $IMAGE_NAME`
 
 #Crear archivo .TAR con la imagen del Contenedor
-	SAVE_FILE=$BACKUP_PATH/$IMAGE_NAME.tar
+	SAVE_FILE=$BACKUP_PATH/$IMAGE_NAME-IMAGE.tar
 	docker save -o $SAVE_FILE "$IMAGE_ID"
 
 fi
