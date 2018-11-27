@@ -2,7 +2,6 @@
 
 # AUTOR: Julio Teran <teranj@daycohost.com>
 # USO: Genera archivo de respaldo .tar de todas las imagenes locales.
-# Nota: Si el nombre de la imagen contiene "/" lo reemplaza por "-"
 
 #Ruta de Respaldo
 BACKUP_PATH="/var/lib/docker-backup/images"
