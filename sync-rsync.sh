@@ -1,5 +1,9 @@
 #!/bin/bash
 
+# AUTOR: Julio Teran <teranj@daycohost.com>
+# USO: RSYNC de directorio local a host remoto
+# con salida solo si existen cambios
+
 # Variables Globales
 DATE=`date +%m%d%H%M%S`
 LOG_DIR=/var/log/rsync
