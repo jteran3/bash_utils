@@ -10,20 +10,30 @@ BACKUP_PATH="/var/lib/docker-backup/images"
 #Crear directorio de Respaldo
 mkdir -p $BACKUP_PATH
 
-#Imprimir nombre de Contenedor
-for i in `docker inspect --format='{{.Name}}' $(docker ps -q) | cut -f2 -d\/`
-do CONTAINER_NAME=$i
-echo -n "$CONTAINER_NAME - "
+#Imprimir id de la imagen
+for i in `docker images --format "{{.Repository}}"`
+do IMAGE_NAME=$i
 
-#Imprimir nombre de la imagen del Contenedor
-CONTAINER_IMAGE=`docker inspect --format='{{.Config.Image}}' $CONTAINER_NAME`
-
-#Crear directorio con nombre de Contenedor en ruta de Respaldo
-mkdir -p $BACKUP_PATH/$CONTAINER_NAME
+# Verificar si el nombre de la imagen contiene "/"
+if [[ $IMAGE_NAME == */* ]]
+then
+	IMAGE_NAME2=`echo $IMAGE_NAME | sed s'/\//-/'`
+	echo "$IMAGE_NAME2"
+	IMAGE_ID=`docker images --format {{.ID}} $IMAGE_NAME`
 
 #Crear archivo .TAR con la imagen del Contenedor
-SAVE_FILE="$BACKUP_PATH/$CONTAINER_NAME/$CONTAINER_NAME-IMAGE.tar"
-docker save -o $SAVE_FILE $CONTAINER_IMAGE
+	SAVE_FILE=$BACKUP_PATH/$IMAGE_NAME2.tar
+	docker save -o $SAVE_FILE "$IMAGE_ID"
+
+else
+	echo "$IMAGE_NAME"
+	IMAGE_ID=`docker images --format {{.ID}} $IMAGE_NAME`
+
+#Crear archivo .TAR con la imagen del Contenedor
+	SAVE_FILE=$BACKUP_PATH/$IMAGE_NAME.tar
+	docker save -o $SAVE_FILE "$IMAGE_ID"
+
+fi
 
 echo "OK"
 
