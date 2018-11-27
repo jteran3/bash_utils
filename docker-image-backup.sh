@@ -1,8 +1,7 @@
 #!/bin/bash
 
 # AUTOR: Julio Teran <teranj@daycohost.com>
-# USO: Genera archivo de respaldo .tar de la imagen usada
-# para crear los contenedores iniciados.
+# USO: Genera archivo de respaldo .tar de las imagenes locales (todas o por stack)
 
 # ./docker-image-backup.sh <empty> <-- Respaldo de todas las imagenes
 # ./docker-image-backup.sh <stack-name> <-- Respaldo de las imagenes de una stack
