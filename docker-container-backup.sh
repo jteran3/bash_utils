@@ -17,7 +17,6 @@ mkdir -p $BACKUP_PATH
 CONT_NAME=$1
 
 function ALL_CONTAINERS {
-
 # Imprimir nombre de Contenedor
 for i in `docker inspect --format='{{.Name}}' $(docker ps -q) | cut -f2 -d\/`
 do CONTAINER_NAME=$i
@@ -38,12 +37,10 @@ echo "$CONTAINER_NAME-BACKUP.tar"
 docker rmi --force $(docker images --format "{{.Repository}}" $CONTAINER_NAME-bk)
 
 echo "OK"
-
 done
 }
 
 function ONE_CONTAINER {
-
 # Fecha
 DATE=`date +%m%d%H%M%S`
 
