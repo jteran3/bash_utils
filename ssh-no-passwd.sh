@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# AUTOR: Julio Teran <teranj@daycohost.com>
+# USO: Copiar ID_RSA para hacer ssh sin solicitud de password
+
 REMOTE_USER=<set_remote_user>
 REMOTE_IP=<set_remote_ip>
 FILE1=id_rsa
