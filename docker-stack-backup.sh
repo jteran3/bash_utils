@@ -29,7 +29,6 @@ echo ""
 echo -e "$STACK_BK"
 echo ""
 
-
 # Introducir nombre de la stack a restaurar
 echo "Introduzca el nombre de la stack a respaldar:"
 read STACK_BACKUP
