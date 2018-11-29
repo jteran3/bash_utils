@@ -4,16 +4,13 @@
 # USO: Genera archivo .tar de imagen (snapshot) del estado actual
 # de todos los contenedores de una stack.
 #
-# ./docker-container-backup.sh <stack-name> <-- Respaldo de todos los contenedores de la stack
+# ./docker-stack-backup.sh <stack-name> <-- Respaldo de todos los contenedores de la stack
 
 # Ruta de Respaldo
 BACKUP_PATH="/var/lib/docker-backup/stack"
 
 # Ruta de Stacks
 STACK_PATH="/var/lib/docker-compose/"
-
-# Fecha
-#DATE=`date +%m%d%H%M%S`
 
 # Crear directorio de Respaldo
 mkdir -p $BACKUP_PATH
@@ -39,7 +36,7 @@ CHECK_NAME=`ls -1 $STACK_PATH | grep -v "_devops_" | grep "$STACK_BACKUP$"`
 if [ $? -eq 1 ]
 then
 	echo ""
-	echo "La stack $STACK_BACKUP no existe o no está desplegada"
+	echo "La stack $STACK_BACKUP no existe"
 	echo ""
 else
 
@@ -64,7 +61,6 @@ CONTAINER_BACKUP=`docker commit -p $CONTAINER_NAME $CONTAINER_NAME-bk`
 mkdir -p $BACKUP_PATH/$STACK_BACKUP/
 
 # Crear archivo .TAR de la imagen (commit) creada del Contenedor:
-#SAVE_FILE="$BACKUP_PATH/$ST_NAME/$CONTAINER_NAME-BACKUP-$DATE.tar"
 SAVE_FILE="$BACKUP_PATH/$STACK_BACKUP/$CONTAINER_NAME-BACKUP.tar"
 docker save -o $SAVE_FILE $CONTAINER_BACKUP
 echo "$CONTAINER_NAME-BACKUP.tar"
