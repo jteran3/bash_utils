@@ -6,13 +6,12 @@ LOG_DIR=/var/log/rsync
 LOG_FILE=/var/log/rsync/$DATE.log
 
 # Variables source
-SYNC_SOURCE=10.0.0.192
-PATH_SOURCE=/root/scripts
+PATH_SOURCE=<DIR_SOURCE>
 
 #Variables destination
-SYNC_DEST=10.0.1.235
-PATH_DEST=/tmp/rsync-dest/
-USER_DEST=accdayco2
+SYNC_DEST=<IP_DEST>
+PATH_DEST=<DIR_DEST>
+USER_DEST=<USER_DEST>
 
 if [ ! -d "$LOG_DIR" ]
 then
